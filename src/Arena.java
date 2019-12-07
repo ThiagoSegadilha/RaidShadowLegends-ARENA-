@@ -40,18 +40,23 @@ public class Arena {
                 BufferedReader lerArq = new BufferedReader(arq);
                 String[] linhas;
                 String linha = null;
-                while (true) {
+                while (!checaArquivo) {
                     try {
-                        if (((linha = lerArq.readLine()) != null)) break;
-                        assert false;
-                        linhas = linha.split("\n");
-                        for(String l: linhas){
-                            if (l.equals(nomeInimigo)) {
-                                checaArquivo = true;
+                        if ((linha = lerArq.readLine()) != null) {
+                            assert false;
+                            linhas = linha.split("\n");
+                            for(String l: linhas){
+                                if (l.equals(nomeInimigo)) {
+                                    System.out.println("Você já enfrentou este inimigo");
+                                    System.out.println("Arquivo: " + caminhoArquivo[i]);
+                                    checaArquivo = true;
+                                    break;
+                                }
+                            }
+                            if(checaArquivo) {
                                 break;
                             }
-                        }
-                        if(checaArquivo) {
+                        } else {
                             break;
                         }
                     } catch (IOException e) {
