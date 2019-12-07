@@ -39,11 +39,11 @@ public class Arena {
                 FileReader arq = new FileReader(caminhoArquivo[i]);
                 BufferedReader lerArq = new BufferedReader(arq);
                 String[] linhas;
-                String linha = null;
+                String linha;// = null;
                 while (!checaArquivo) {
                     try {
                         if ((linha = lerArq.readLine()) != null) {
-                            assert false;
+                            //assert false;
                             linhas = linha.split("\n");
                             for(String l: linhas){
                                 if (l.equals(nomeInimigo)) {
